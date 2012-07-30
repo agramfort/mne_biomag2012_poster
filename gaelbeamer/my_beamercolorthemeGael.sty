@@ -1,0 +1,69 @@
+\ProvidesPackageRCS $Header: /cvsroot/latex-beamer/latex-beamer/themes/color/beamercolorthemecrane.sty,v 1.8 2004/10/28 17:15:51 tantau Exp $
+
+% Addapted from beamercolortheeSkole by Gael Varoquaux
+
+%\mode<presentation>
+
+\definecolor{LinkColor}{rgb}{0.95, 0.95, 1}
+
+% \definecolor{DarkBlue}{RGB}{0,25,84}
+\definecolor{DarkBlue}{RGB}{28,79,156}
+\definecolor{Blue}{RGB}{28,79,156}
+\definecolor{White}{RGB}{255,255,255}
+% \definecolor{Red}{RGB}{255,0,0}
+\definecolor{Red}{RGB}{255,93,0}
+\definecolor{DarkRed}{RGB}{129,3,11}
+% \definecolor{Orange}{RGB}{255,93,0}
+% \definecolor{Green}{RGB}{117,183,111}
+\definecolor{Green}{RGB}{61,147,43}
+
+\colorlet{LightBlue}{Blue!50!White}
+
+\colorlet{GoalColor}{Red}
+%% Coloring links does not seem to work this way
+%\colorlet{LinkColor}{White}
+\colorlet{ResultColor}{Red}
+\colorlet{SorryColor}{Blue}
+\colorlet{ImportantColor}{Red}
+
+\colorlet{CompareOther}{Red}
+\colorlet{CompareItem}{yellow}
+
+\colorlet{shadingcolor}{LightBlue!60}
+
+\colorlet{structurecolor}{DarkBlue!85!black}
+\setbeamercolor{structure}{fg=structurecolor}
+
+% \colorlet{alertcolor}{Blue}
+% \colorlet{alertcolor}{DarkRed!85!black!75!red}
+\colorlet{alertcolor}{DarkRed}
+\setbeamercolor{alerted text}{fg=DarkRed}
+% \setbeamercolor{alerted text}{fg=Red!85!black!75!red}
+
+\setbeamercolor{titlelike}{fg=White,bg=DarkBlue}
+
+%\setbeamercolor{titlelike}{parent=palette quaternary}
+
+\setbeamercolor{block title}{fg=DarkBlue!50!black,bg=White!70!DarkBlue!50}
+\setbeamercolor{block title alerted}{use=alerted text,fg=DarkBlue,bg=alerted text.fg!75!bg}
+\setbeamercolor{block title example}{use=example text,fg=Green,bg=example text.fg!75!bg}
+
+\setbeamercolor{block body}{parent=normal text,use=block title,bg=Blue!15}
+\setbeamercolor{block body alerted}{parent=normal text,use=block title alerted,bg=block title alerted.bg!25!bg}
+\setbeamercolor{block body example}{parent=normal text,use=block title example,bg=block title example.bg!25!bg}
+
+% Frame title
+\setbeamercolor*{palette secondary}{use=structure,fg=DarkBlue,bg=White}
+%%
+\setbeamercolor*{palette tertiary}{use=structure,fg=White,bg=structure.fg!50!black}
+% Color of navigation elements on top
+\setbeamercolor*{palette quaternary}{fg=White,bg=DarkBlue}
+
+%\setbeamercolor*{titlelike}{parent=palette primary}
+
+\setbeamercolor*{separation line}{}
+\setbeamercolor*{fine separation line}{}
+
+\mode
+<all>
+

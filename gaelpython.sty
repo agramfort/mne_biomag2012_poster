@@ -1,0 +1,102 @@
+\usepackage{multimedia}
+\usepackage{hyperref}
+\usepackage{listings}
+\usepackage{color}
+
+%In ~/.mailcap add:
+%application/x-py; /usr/bin/python -i %s
+%
+%In ~/.mime.types add:
+%application/x-py py
+
+
+\definecolor{htmltitlecolor}{rgb}{0.23, 0.04, 0}
+\definecolor{darkred}{rgb}{0.7, 0, 0}
+
+\definecolor{SkoleBrown}{RGB}{150,100,50}
+\definecolor{SkoleYellow}{RGB}{232,183,3}
+\definecolor{SkoleOrange}{RGB}{252,135,36}
+\colorlet{SkoleLightBrown}{SkoleBrown!50!SkoleYellow}
+%\colorlet{titlecolor}{SkoleBrown!85!black}
+\definecolor{darkgreen}{cmyk}{0.7, 0, 1, 0.5}
+\definecolor{darkblue}{cmyk}{1, 0.8, 0, 0}
+\definecolor{lightblue}{cmyk}{0.05,0,0,0.05}
+\definecolor{grey}{cmyk}{0.1,0.1,0.1,1}
+\definecolor{lightgrey}{cmyk}{0,0,0,0.5}
+\definecolor{purple}{cmyk}{0.8,1,0,0}
+
+\colorlet{titlecolor}{SkoleOrange!50!black}
+\colorlet{codeblockcolorbase}{SkoleLightBrown!80!black}
+\colorlet{codeblockcolor}{codeblockcolorbase!08}
+
+
+\lstset{language=python,
+	extendedchars=true,
+	%backgroundcolor=\color{codeblockcolor},
+	xleftmargin = 0pt,
+	%frame=single,
+	%fillcolor=\color{codeblockcolor},
+	%rulecolor=\color{lightgrey},
+        aboveskip = 0.5ex,
+        belowskip = 0.6ex,
+	escapebegin={\color{darkgreen}},
+        keywordstyle=\sffamily\bfseries,
+	identifierstyle=\sffamily,
+	commentstyle=\slshape\color{darkgreen},
+	stringstyle=\rmfamily\color{blue},
+	showstringspaces=false,
+	tabsize=2,
+	breaklines=true,
+	classoffset=1,
+        morekeywords={{,},=,:}, keywordstyle=\color{darkblue},
+	classoffset=0,
+	}
+
+\newcommand{\inputpython}[1]{%
+\lstset{%backgroundcolor=\color{codeblockcolor},
+	%fillcolor=\color{codeblockcolor},
+	basicstyle=\ttfamily\tiny,
+	}
+\lstinputlisting[firstline=2]{#1}
+%\vspace{-1em}
+}
+
+\newcommand{\Inputpython}[2][\@empty]{%
+\begin{columns}
+\column{1.1\linewidth}
+\inputpython[#1]{#2}
+\end{columns}
+}
+
+\newcommand{\inputsession}[1]{%
+\lstset{backgroundcolor=\color{lightblue},
+	fillcolor=\color{lightblue},
+	basicstyle=\ttfamily\footnotesize,
+	}
+\lstinputlisting{#1}
+}
+
+\newcommand{\Inputsession}[1]{%
+\begin{columns}
+\column{1.1\linewidth}
+\inputsession{#1}
+\end{columns}
+}
+
+\newcommand{\pythonline}{%
+\lstset{backgroundcolor=\color{white},
+	fillcolor=\color{white},
+	basicstyle=\ttfamily\footnotesize,
+	}
+\lstinline%
+}
+
+\newcommand{\Pythonline}{%
+\lstset{backgroundcolor=\color{white},
+	fillcolor=\color{white},
+	basicstyle=\ttfamily,
+	}
+\lstinline%
+}
+
+

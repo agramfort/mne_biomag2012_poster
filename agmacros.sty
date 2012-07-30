@@ -1,0 +1,324 @@
+% This is file `agmacros.sty',
+% Assembling some LaTeX macros to avoid repeating them in each document
+
+\@ifundefined{agnote}{}{\endinput}
+\typeout{agmacros}
+\NeedsTeXFormat{LaTeX2e}
+% \RequirePackage{theorem}
+\RequirePackage{amsmath}
+\RequirePackage{amsfonts}
+\RequirePackage{amsthm}
+\RequirePackage{mathrsfs}
+\RequirePackage{euscript}
+\RequirePackage{amssymb}
+\ProvidesPackage{agmacros}
+
+%\newcommand{\color}[2][1]{\relax}
+\newcommand{\tta}{{\tt a}}
+\newcommand{\ttd}{{\tt d}}
+\newcommand{\ttb}{{\tt b}}
+\newcommand{\ttc}{{\tt c}}
+\newcommand{\ttx}{{\tt x}}
+
+\newcommand{\rd}{{\rm d}}
+\newcommand{\rds}{{\rm ds}}
+
+\newcommand{\vc}[1]{{\boldsymbol{\mathbf #1}}}
+\newcommand{\agnote}[1]{[ \textbf{Note:} #1 ]}
+\newcommand{\re}{{\rm e}}
+\newcommand{\expect}{{\rm E}}
+\newcommand{\real}{{\mathbb R}}
+\newcommand{\integ}{{\mathbb Z}}
+\newcommand{\nat}{{\mathbb N}}
+\newcommand{\four}{{\mathscr F}}
+\newcommand{\opA}{{\EuScript A}}
+\newcommand{\opH}{{\EuScript H}}
+\newcommand{\opP}{{\EuScript P}}
+\newcommand{\opN}{{\EuScript N}}
+\newcommand{\opS}{{\EuScript S}}
+\newcommand{\opC}{{\EuScript C}}
+\newcommand{\opD}{{\EuScript D}}
+\newcommand{\opI}{{\EuScript I}}
+\newcommand{\sfH}{{\mathsf H}}
+\newcommand{\sfU}{{\mathsf U}}
+\newcommand{\sfL}{{\mathsf L}}
+\newcommand{\sfA}{{\mathsf A}}
+\newcommand{\sfB}{{\mathsf B}}
+\newcommand{\sfC}{{\mathsf C}}
+\newcommand{\sfD}{{\mathsf D}}
+\newcommand{\sfF}{{\mathsf F}}
+\newcommand{\sff}{{\mathsf f}}
+\newcommand{\sfG}{{\mathsf G}}
+\newcommand{\sfI}{{\mathsf I}}
+\newcommand{\sfJ}{{\mathsf J}}
+\newcommand{\sfM}{{\mathsf M}}
+\newcommand{\sfN}{{\mathsf N}}
+\newcommand{\sfT}{{\mathsf T}}
+\newcommand{\sfV}{{\mathsf V}}
+\newcommand{\sfS}{{\mathsf S}}
+\newcommand{\sfW}{{\mathsf W}}
+\newcommand{\sfX}{{\mathsf X}}
+\newcommand{\sfY}{{\mathsf Y}}
+\newcommand{\sfQ}{{\mathsf Q}}
+\newcommand{\sfzero}{{\mathsf 0}}
+\newcommand{\distD}{{\mathscr D}}
+\newcommand{\distS}{{\mathscr S}}
+\newcommand{\euK}{{\EuScript K}}
+\newcommand{\calL}{{\mathscr L}}
+\newcommand{\calH}{{\mathscr H}}
+\newcommand{\calP}{{\mathscr P}}
+\newcommand{\calT}{{\mathscr T}}
+\newcommand{\eqdef}{\stackrel{\text{def}}{=}}
+\newcommand{\eqqm}{\stackrel{\text{?}}{=}}
+\newcommand{\eqexcl}{\stackrel{\text{!}}{=}}
+\newcommand{\sinc}{\operatorname{sinc}}
+\newcommand{\spanop}{\operatorname{span}}
+\newcommand{\supp}{\operatorname{supp}}
+% \newcommand{\abs}{\operatorname{abs}}
+\newcommand{\vcb}{\vc{b}}
+\newcommand{\vcc}{\vc{c}}
+\newcommand{\vcf}{\vc{f}}
+\newcommand{\vcg}{\vc{g}}
+\newcommand{\vce}{\vc{e}}
+\newcommand{\vch}{\vc{h}}
+\newcommand{\vcj}{\vc{j}}
+\newcommand{\vcm}{\vc{m}}
+\newcommand{\vcn}{\vc{n}}
+\newcommand{\vco}{\vc{o}}
+\newcommand{\vcp}{\vc{p}}
+\newcommand{\vcq}{\vc{q}}
+\newcommand{\vcr}{\vc{r}}
+\newcommand{\vcs}{\vc{s}}
+\newcommand{\vcu}{\vc{u}}
+\newcommand{\vcv}{\vc{v}}
+\newcommand{\vcw}{\vc{w}}
+\newcommand{\vcx}{\vc{x}}
+\newcommand{\vcy}{\vc{y}}
+\newcommand{\vcz}{\vc{z}}
+\newcommand{\vcB}{\vc{B}}
+\newcommand{\vcC}{\vc{C}}
+\newcommand{\vcE}{\vc{E}}
+\newcommand{\vcF}{\vc{F}}
+\newcommand{\vcG}{\vc{G}}
+\newcommand{\vcJ}{\vc{J}}
+\newcommand{\Jp}{\vc{J}^{\text{p}}}
+\newcommand{\Jv}{\vc{J}^{\text{v}}}
+\newcommand{\vcM}{\vc{M}}
+\newcommand{\vcN}{\vc{N}}
+\newcommand{\vcV}{\vc{V}}
+\newcommand{\vcL}{\vc{L}}
+\newcommand{\vcA}{\vc{A}}
+\newcommand{\vcP}{\vc{P}}
+\newcommand{\vcd}{\vc{d}}
+\newcommand{\fo}{f_{\text{out}}}
+\newcommand{\Fo}{F^{*}}
+\newcommand{\Fin}{F_{\text{in}}}
+\newcommand{\fin}{{f_{\text{in}}}}
+\newcommand{\vcfin}{{\vc{f}_{\text{in}}}}
+\newcommand{\Fb}{\overline{F}}
+\newcommand{\Ec}{E_c}
+\newcommand{\nablac}{\nabla_{\!\!\vc{c}}}
+\newcommand{\nablax}{\nabla_{\!\!\vc{x}}}
+\newcommand{\nablad}{\nabla_{\!\!\vc{d}}}
+\newcommand{\expop}{{\mathcal E}}
+\newcommand{\redop}{{\mathcal R}}
+\newcommand{\uint}{u^{\text{int}}}
+\newcommand{\uext}{u^{\text{int}}}
+\def\dual{\mathaccent'27}
+\newcommand{\hcirc}{\dual h}
+\newcommand{\vczero}{\vc{0}}
+%\newcommand{\QED}{\relax}
+\newcommand{\radon}{{\mathscr R}}
+\newcommand{\conv}{*}
+\newcommand{\sign}{\operatorname{sign}}
+
+% {%\theoremheaderfont{\bfseries}
+% %\theorembodyfont{\slshape}
+% \theoremstyle{plain}
+% \newtheorem{The}{Theorem}
+% \newtheorem{Cor}[The]{Corollary}
+% \newtheorem{Lem}[The]{Lemma}
+% \newtheorem{Prop}[The]{Proposition}
+% \newtheorem{Algo}{Algorithm}
+% 
+% \theoremstyle{definition}
+% \newtheorem{Def}{Definition}
+% 
+% \theoremstyle{remark}
+% \newtheorem*{Rmk}{Remark}
+% \newtheorem*{Rmks}{Remarks}
+% \newtheorem*{Note}{Note}
+% 
+% \numberwithin{The}{chapter}
+% \numberwithin{Def}{chapter}
+% \numberwithin{Algo}{chapter}
+% }% end of theorem-like environment definitions
+
+\newcommand{\remark}[2][]{
+\noindent{\small\emph{Remark: #1 }#2}\,\hfill $\blacksquare$}
+
+% % typeset parameter in a \vtop box and shift it up so that its
+% % reference point is at the top
+% \newcommand{\shiftup}[1]{%
+%     \setbox0=\vtop{#1}%
+%     \dimen0=\dp0 \advance\dimen0 by \ht0
+%     \dp0=\dimen0 \ht0=0pt%
+%     \vtop{\box0}}
+% % as \shiftup but the first parameter governs the height of the box
+% \newcommand{\shiftupto}[2]{%
+%     \setbox0=\vtop to #1{#2}%
+%     \dimen0=\dp0 \advance\dimen0 by \ht0
+%     \dp0=\dimen0 \ht0=0pt%
+%     \vtop{\box0}}
+% 
+% % as \shiftup but typesets a horizontal box
+% \newcommand{\shiftuph}[1]{\shiftup{\hbox{#1}}}
+% 
+% % centered box of width zero
+% \newcommand{\cbox}[1]{\hbox to 0pt{\hss{#1}\hss}}
+% 
+% % centered math box of width zero
+% \newcommand{\cmbox}[1]{\hbox to 0pt{\hss{$#1$}\hss}}
+% \newcommand{\abs}[1]{\lvert#1\rvert}
+% \newcommand{\norm}[1]{\lVert#1\rVert}
+% 
+% \def\CMPLogoWidth{36truemm}
+% \def\CMPLogoHeight{32truemm}
+% \def\CMPLogo{\vbox to \CMPLogoHeight{%
+% \hbox to \SideBarWidth{\hfil\includegraphics[width=\CMPLogoWidth]{cmp}\hfil}%
+% \hbox to \SideBarWidth{\@LogoFont\hfil CENTER FOR\hfil}%
+% \hbox to \SideBarWidth{\@LogoFont\hfil MACHINE PERCEPTION\hfil}\vss}}
+% 
+% % Add a period to the end of an abbreviation unless there's one
+% % already, then \xspace.
+% \usepackage{xspace}
+% \makeatletter
+% \DeclareRobustCommand\onedot{\futurelet\@let@token\@onedot}
+% \def\@onedot{\ifx\@let@token.\else.\null\fi\xspace}
+
+\def\eg{\emph{e.g.,} }
+\def\ie{\emph{i.e.,} }
+\def\aka{\emph{a.k.a.,} }
+\def\cf{\emph{cf.,} }
+\def\etc{\emph{etc}\onedot}
+\def\vs{\emph{vs}\onedot}
+\def\wrt{w.r.t\onedot}
+\def\dof{d.o.f\onedot}
+\def\etal{\emph{et al}\onedot }
+
+
+\def\st{\textrm{ s.t. }}
+
+
+\newcommand{\half}{0.48 \columnwidth}
+\newcommand{\third}{0.32 \columnwidth}
+
+\newcommand{\ov}{\overline}
+
+\newcommand{\NN}{\mathbb{N}}
+\newcommand{\ZZ}{\mathbb{Z}}
+\newcommand{\QQ}{\mathbb{Q}}
+\newcommand{\RR}{\mathbb{R}}
+\newcommand{\CC}{\mathbb{C}}
+\newcommand{\GG}{\mathcal{G}}
+% \newcommand{\T}{\text}
+\newcommand{\T}{\mathbb{T}}
+\newcommand{\DD}{\Delta}
+
+\newcommand{\lbs}{\lambda_{\textrm{space}}}
+\newcommand{\lbt}{\lambda_{\textrm{time}}}
+\newcommand{\tb}{|||}
+% \newcommand{\tb}{\|\!|}
+
+\def\x{{\mathbf x}}
+\def\y{{\mathbf y}}
+\def\z{{\mathbf z}}
+\def\m{{\mathbf m}}
+\def\u{{\mathbf u}}
+\def\v{{\mathbf v}}
+\def\w{{\mathbf w}}
+\def\s{{\mathbf s}}
+% \def\L{{\cal L}}
+
+\def \lb {{\langle}}
+\def \rb {{\rangle}}
+
+\newcommand{\norm}[1]{\left|\left|#1\right|\right|}
+\newcommand{\fro}[1]{\|#1\|_2}
+% \newcommand{\fro}[1]{\left|\left|#1\right|\right|_F}
+\newcommand{\argmin}{\mathop{\mathrm{arg\,min}}}
+\newcommand{\argmax}{\mathop{\mathrm{arg\,max}}}
+\newcommand{\dive}{\mathop{\mathrm{div}}}
+
+% \newcommand{\vect}[1]{\overrightarrow{#1}}
+\newcommand{\vect}[1]{\mathbf{#1}}
+\newcommand{\stack}[1]{\textrm{vec}(#1)}
+\newcommand{\unstack}[1]{\textrm{mat}(#1)}
+\newcommand{\mat}[1]{\mathbf{#1}}
+\newcommand{\tsp}[1]{{#1}^T}
+\newcommand{\trace}[1]{\mathrm{trace}(#1)}
+% \newcommand{\abs}[1]{\left| #1 \right|}
+% \newcommand{\sign}[1]{\textrm{sign}(#1)}
+
+\newcommand{\Id}{\mat{I}}
+\newcommand{\X}{\mat{X}}
+\newcommand{\Y}{\mat{Y}}
+\newcommand{\Z}{\mat{Z}}
+\def \G {{\mathbf G}}
+\def \S {{\mathbf S}}
+\def \L {{\mathbf L}}
+\def \R {{\mathbf R}}
+\def \Q {{\mathbf Q}}
+% \newcommand{\M}{\mat{M}}
+\newcommand{\M}{\underline{M}}
+\newcommand{\E}{\mat{E}}
+\newcommand{\W}{\mat{W}}
+\newcommand{\U}{\mat{U}}
+\newcommand{\D}{\mat{D}}
+% \newcommand{\L}{\mat{L}}
+\newcommand{\V}{\mat{V}}
+\newcommand{\C}{\mat{C}}
+\newcommand{\SSigma}{\mat{\Sigma}}
+\newcommand{\EE}{\mathcal{E}}
+\newcommand{\Hz}{~\mathrm{Hz}}
+\newcommand{\ms}{~\mathrm{ms}}
+\newcommand{\One}{\mathbf{1}}
+\newcommand{\Zero}{\mathbf{0}}
+\newcommand{\EMBAL}{ \href{https://gforge.inria.fr/projects/embal}{EMBAL} }
+
+\newcommand{\kro}{\otimes}
+
+\newcommand{\prox}{\mathrm{prox}}
+
+\newcommand{\todo}[1]{{\huge \textbf{#1}}}
+
+\newcommand{\myparagraph}[1]{{\paragraph{#1}\mbox{}\\}}
+% \newcommand{\myparagraph}[1]{{\paragraph{#1}\ \nopagebreak \\ \nopagebreak}}
+
+\definecolor{OliveGreen}{cmyk}{0.64,0,0.95,0.40}
+\newcommand{\checkItem}{\textbf{\Pisymbol{wasy}{8}}\hspace{3mm}}
+\newcommand{\command}[1]{\framebox[\textwidth][l]{\begin{minipage}{\textwidth} \tt \$ #1 \end{minipage}}}
+\newcommand{\fileName}[1]{{\tt #1}}
+\newcommand{\commandName}[1]{\textcolor{red}{\tt #1}}
+\newcommand{\optionName}[1]{\textcolor{OliveGreen}{\tt #1}}
+\newcommand{\outputName}[1]{\textcolor{blue}{\tt #1}}
+
+% \definecolor{Plum}{cmyk}{0.50,1.,0,0}
+% \definecolor{myred}{rgb}{0.9,0,0.1}
+% \definecolor{myorange}{rgb}{1,0.5,0.1}
+% \newcommand{\MC}[2]{\textcolor{Plum}{#1}\sout{#2}}
+% % \newcommand{\AG}[2]{#1}
+% \newcommand{\AG}[2]{\textcolor{myorange}{#1}}
+% % \newcommand{\AG}[2]{\textcolor{myorange}{#1}\sout{#2}}
+% \newcommand{\TP}[2]{\textcolor{myred}{#1}\sout{#2}}
+
+\usepackage{nomencl}
+\makenomenclature
+
+% paragraph paragraph_name (end)
+
+% \newcommand{\myfrac}[2]{\frac{\displaystyle #1}{\displaystyle #2}}
+
+\endinput
+%%
+%% End of file `agmacros.sty'.

@@ -1,0 +1,392 @@
+\documentclass[slidestop,11pt,compress,serif]{beamer} % {{{--
+% \documentclass[slidestop,11pt,compress,serif,draft]{beamer} % {{{--
+
+\usepackage{gaelposter}
+\usepackage{gaelpython}
+
+% Enlarge margins, this printer is great !
+\geometry{verbose, a4paper, left=0.2cm, right=0.2cm, bottom=0pt}
+
+%\usepackage{relsize} % for relative sizes
+\usepackage{picins}
+\usepackage{graphicx}
+\usepackage{multicol}
+\usepackage{calc}
+\usepackage{agmacros}
+
+\usepackage{pgf,pgfarrows,pgfnodes}
+
+\graphicspath{{img/}}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%% My box command %%%%%%%%%%%%%%%%%%%%%%%
+\usepackage{xkeyval}
+
+\makeatletter
+\define@key{mybox}{corners}{\def\my@corners{#1}}
+\define@key{mybox}{color}{\def\bg@color{#1}}
+\define@key{mybox}{width}{\setlength\mybox@width{#1}}
+\define@key{mybox}{position}{\def\box@position{#1}}
+\define@key{mybox}{innerposition}{\def\box@innerposition{#1}}
+\define@key{mybox}{opacity}{\def\box@opacity{#1}}
+\define@key{mybox}{height}{\def\box@height{#1}}
+\newbox\my@tempbox
+\newlength\my@height
+\newlength\my@width
+\newlength\mybox@width
+\newlength\innerbox@width
+\newlength\box@heightlgth
+
+\newcommand{\mybox}[2][]{%
+  \setlength\mybox@width{\linewidth}%
+  \def\box@position{T}%
+  \def\box@innerposition{s}%
+  \def\box@opacity{0.75}%
+  \def\bg@color{gray!25}%
+  \def\my@corners{2mm}%
+  \let\box@height\@empty
+  \setkeys{mybox}{#1}%
+  \setlength\innerbox@width{\mybox@width}%
+  \advance\innerbox@width by -2mm%
+  \setbox\my@tempbox=\hbox{%
+  \ifx\box@height\@empty%
+    \begin{minipage}{\innerbox@width}%
+  \else%
+    \setlength\box@heightlgth{\box@height}%
+    \advance\box@heightlgth by -\my@corners%
+    \advance\box@heightlgth by -1.7ex%
+    \begin{minipage}[\box@position][\box@heightlgth][\box@innerposition]%
+        {\innerbox@width}%
+  \fi%
+      #2%
+    \end{minipage}%
+  }%
+  \my@height=\ht\my@tempbox%
+  \my@width=\wd\my@tempbox%
+  %
+  \advance\my@width by 2mm%
+  %
+  \begin{minipage}[\box@position]{\mybox@width}%
+  \begin{tikzpicture}[rounded corners=\my@corners, fill=\bg@color]
+      \fill[fill opacity=\box@opacity, scale=0.5]
+          (-\my@width,-2\my@height) rectangle (\my@width, 2\my@height);
+      \path (0,0) node {\box\my@tempbox} ;
+  \end{tikzpicture}%
+  \end{minipage}%
+}
+\makeatother
+
+%%%%%%%%%%%%%%%%%%%%%%%%%% Poster related style %%%%%%%%%%%%%%%%%
+\newcommand{\vfillll}{\vfilll\vfilll\vfilll\vfilll\vfilll\vfilll\vfilll\vfilll\vfilll\vfilll\vfilll\vfilll\vfilll\vfilll\vfilll\vfilll\vfilll\vfilll\vfilll\vfilll\vfilll\vfilll\vfilll\vfilll\vfilll\vfilll\vfilll\vfilll\vfilll\vfilll\vfilll\vfilll\vfilll\vfilll\vfilll\vfilll\vfilll\vfilll\vfilll\vfilll}
+
+\newcommand{\blocktitle}[2]{
+    \vfillll%
+    \hspace*{-1pt}\mybox[corners=0pt, opacity=0.9, color=#2]{%
+    {\sffamily\bfseries\Large%
+    \raisebox{-.4ex}{\rule{0pt}{1ex}}%
+    \color{white}{#1}}%
+    }%
+    \vspace*{1.8ex}%
+}
+
+\renewcommand{\subsection}[1]{%
+\normalsize\emph{\sffamily #1\\[-0.9em]\rule{\linewidth}{1pt}}%
+\par%
+}
+
+\def\name#1{\mbox{\sc #1}}
+\setlength\fboxsep{0pt}
+
+\newcommand{\photoframe}[1]{\setlength\fboxsep{0pt}%
+\color{gray}\fbox{#1}}
+
+\newcommand{\mydot}{\hspace*{-0.3ex}%
+\raisebox{0.2ex}{\color{structurecolor}\rule{1.1ex}{1.1ex}}%
+\hspace*{0.4ex}%
+}
+
+\newcommand{\mydotdot}{\hspace*{1.3ex}%
+\raisebox{0.2ex}{\color{alertcolor}\rule{1.1ex}{1.1ex}}%
+\hspace*{0.4ex}%
+}
+
+\newcommand{\mywhitedot}{\hspace*{0.1ex}%
+\raisebox{0.2ex}{\color{white}\rule{1.1ex}{1.1ex}}%
+\hspace*{0.4ex}%
+}
+
+\newcommand{\green}[1]{{\color{Green!70!black} #1}}
+% \newcommand{\green}[1]{{\color{Green!40!black} #1}}
+
+% Def BLOCK environment
+\newenvironment{myblock}[1]{
+    \blocktitle{#1}{Blue}%
+    \vspace*{-1.5ex}%
+    \mybox[corners=0pt, color=white, width=\linewidth]{
+}{
+    }
+}
+
+% Def Alert BLOCK environment
+\newenvironment{myalertblock}[1]{
+    % \blocktitle{#1}{Red!90!black}%
+    \blocktitle{#1}{DarkRed}%
+    \vspace*{-1.5ex}%
+    \mybox[corners=0pt, color=white, width=\linewidth]{
+}{
+    }
+}
+
+% Def Example BLOCK environment
+\newenvironment{myexampleblock}[1]{
+    % \blocktitle{#1}{green!40!black}%
+    \blocktitle{#1}{Green}%
+    \vspace*{-1.5ex}%
+    \mybox[corners=0pt, color=white, width=\linewidth]{
+}{
+    }
+}
+
+% Def Filled BLOCK environment
+\newenvironment{myfilledblock}[1]{
+    \mybox[opacity=1.0, color=alertcolor, width=\linewidth]{%
+        \bfseries\sffamily\color{white}
+        {\LARGE%
+            \raisebox{-.4ex}{\rule{0pt}{0.9em}}%
+            #1
+        \hrule
+        }%
+}{
+    }
+}
+
+% \mybox[opacity=1.0, color=alertcolor, width=.6\linewidth]{%
+%     \bfseries\sffamily\color{white}
+%     {\LARGE%
+%         \raisebox{-.4ex}{\rule{0pt}{0.9em}}%
+%         Functional networks
+%     \hrule
+%     }%
+%     Express pathology and cognition
+% }
+
+%%%%%%%%%%%%%%%%%%%%%%%%%% Local defines : %%%%%%%%%%%%%%%%%%%%%%
+% define a slanted fraction:
+% \def\slantfrac#1#2{\kern.1em^{#1}\kern-.3em/\kern-.1em_{#2}}
+% define Dirac's braket notation (stolen from braket.sty, that
+% unfortunately does not come with TeTeX
+% \def\bra#1{\mathinner{\langle{#1}|}}
+% \def\ket#1{\mathinner{|{#1}\rangle}}
+% \xdefinecolor{darkgreen}{rgb}{0,0.5,0}
+% \xdefinecolor{darkred}{rgb}{0.7,0,0}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%--}}}%
+\begin{document}
+\newlength\thiscolumnheight
+
+\setbeamertemplate{background}
+{%
+\rule{0pt}{0.76\paperheight}%
+\centerline{%
+% \includegraphics[width=.8\linewidth]{pretty_brain_white_transp}%
+}%
+}%
+
+\setbeamercolor{normal text}{bg=shadingcolor!25}
+\beamertemplateshadingbackground{white}{white}
+% \beamertemplateshadingbackground{shadingcolor!50}{white}
+\begin{frame}[plain,t]
+\postertitle{%
+The MNE package for M/EEG data processing
+}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Authors and logos {{{---
+\begin{minipage}{0.165\linewidth}
+    \centerline{%
+    \includegraphics[width=0.42\linewidth]{logo_harvard}%
+    \hfill
+    \includegraphics[width=0.42\linewidth]{logo_mgh}%
+    \hfill
+    }
+    \vspace{2ex}
+\end{minipage}
+%
+\hfill
+%
+\vspace*{-1em}%
+\mybox[width=0.64\linewidth, opacity=0., color=white]{%
+    \small
+    \def\MGH{\unskip$^{\dagger}$}
+    \def\PARIETAL{\unskip$^{\ddagger}$}
+    \def\ILMENAU{\unskip$^{\star}$}
+    \def\LSS{\unskip$^{\ast}$}
+
+    \begin{center}
+    \vspace*{-1.3ex}%
+    \mbox{\hspace{-1em}%
+    \name{A. Gramfort\MGH\PARIETAL, M. Luessi\MGH, M. H\"am\"al\"ainen\MGH, YOU ?}}\\
+
+    {\small\tt gramfort@nmr.mgh.harvard.edu}
+
+    \mbox{$^\dagger$ MGH, Harvard Medical School, USA \hspace{0.2cm}
+          $^\ddagger$ Parietal Project Team, INRIA, France}
+    \end{center}
+}
+%
+\hfill
+%
+\begin{minipage}{0.165\linewidth}
+    \hfill
+    \centerline{%
+    \includegraphics[width=0.85\linewidth]{logo_inria_simple}
+    }
+    \centerline{%
+    \includegraphics[width=1\linewidth]{logo_parietal}
+    }
+\end{minipage}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% ---}}}
+
+\sffamily
+\vfillll%
+
+% First row {{{---
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%-------------------------------------------------------------------------------
+
+\begin{minipage}[B]{0.47\linewidth}
+    \begin{myexampleblock}{Features}
+        \subsection{Preprocessing}
+        \mydot Filter, review raw data, correct ECG / EOG with SSPs\\
+        \subsection{Forward modeling}
+        \mydot Automatic BEM with Freesurfer reconstruction\\
+        \subsection{Inverse modeling}
+        \mydot MNE - dSPM - sLORETA - LCMV - MxNE\\
+        \subsection{Statistics}
+        \mydot Parametric and non-parametric (sensor \& source space)
+    \end{myexampleblock}
+    \begin{myalertblock}{Project vision \& Goals}
+        \mydot State of the art pipeline\\
+        \mydot Well documented, tested and easy to use\\
+        \mydot Open development between different labs\\
+        \mydot Sharing best practices for analysis\\
+        \mydot Make reproducible research with M/EEG\\
+    \end{myalertblock}
+\end{minipage}%
+%
+\hfill%
+\begin{minipage}{.5\linewidth}
+    \Large\bfseries
+    \begin{minipage}{\linewidth}
+        ~ MNE-suite:
+
+    ~\! C / Unix \& Matlab \& Python
+    \begin{center}
+        \includegraphics[width=\linewidth]{mne-screenshot-montage.png}%
+    \end{center}
+    \end{minipage}
+\end{minipage}
+% First row ---}}}
+
+\begin{minipage}{\linewidth}
+    \smallskip
+\center
+{\huge\bfseries\sffamily http://martinos.org/mne~~~~~~http://github.com/mne-tools}
+\end{minipage}
+
+\vfillll
+
+% Bottom banner {{{---
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+% \begin{minipage}{.4\linewidth}
+%     \includegraphics[width=\linewidth]{plot_evoked.png}%
+% \end{minipage}%
+% \hfill%
+% \begin{minipage}{.4\linewidth}
+%     \includegraphics[width=\linewidth]{induced.png}%
+% \end{minipage}%
+% \hfill%
+% \begin{minipage}{.18\linewidth}
+%     \includegraphics[width=\linewidth]{pysurfer.png}%
+% \end{minipage}%
+% \hfill%
+% % \begin{minipage}{.19\linewidth}
+% %     \includegraphics[width=\linewidth]{nonlinear_svm}
+% %     \llap{\raisebox{15ex}{Custom kernel SVM ~}}
+% % \end{minipage}%
+% \hfill%
+% Second row ---}}}
+
+% Second row {{{---
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{minipage}{\linewidth}
+    \begin{minipage}[t]{0.48\linewidth}
+        \begin{myexampleblock}{MNE-Python}
+            \mydot Python: general-purpose, high-level language \\
+            \mydot Free (can run on a cluster without license problem)\\
+            \mydot Permissive BSD license (allows use in commercial products)\\
+            \mydot Open http://github.com/mne-tools/mne-python\\
+            \mydot 14 contributors so far
+            \begin{center}
+                \includegraphics[width=0.8\linewidth]{sloc_july_2012.png}%
+            \end{center}
+        \end{myexampleblock}
+        \begin{myalertblock}{Learn more}
+            \begin{minipage}{1.\linewidth}
+                \mydot Mailing list: mne\_analysis@nmr.mgh.harvard.edu\\
+                \mydot http://martinos.org/mne/ (general doc)\\
+                \mydot http://martinos.org/mne/python\_tutorial.html\\
+                \mydot http://martinos.org/mne/auto\_examples/ (> 40 demo)\\
+                \mydot http://mne-tools.github.com/mne-python-intro-slides\\
+            \end{minipage}
+        \end{myalertblock}
+    \end{minipage}
+    \begin{minipage}[t]{0.5\linewidth}
+        \begin{myexampleblock}{From raw to dSPM in < 30 lines of code}
+        \hspace*{.01\linewidth}%
+        \vspace{-0.6cm}
+        \inputpython{short_example.py}
+        \end{myexampleblock}
+    \end{minipage}
+    \hfill
+\end{minipage}
+
+\vfillll
+
+% Second row ---}}}
+
+\vfillll
+
+% Bottom banner {{{---
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{minipage}{.24\linewidth}
+    \includegraphics[width=\linewidth]{psd.png}%
+\end{minipage}%
+\hfill%
+\begin{minipage}{.20\linewidth}
+    \includegraphics[width=\linewidth]{plot_cov.png}
+\end{minipage}%
+\hfill%
+\begin{minipage}{.18\linewidth}
+    \includegraphics[width=\linewidth]{pysurfer.png}%
+\end{minipage}%
+\hfill%
+\begin{minipage}{.18\linewidth}
+    \includegraphics[width=\linewidth]{mne_lcmv_freeview.png}%
+\end{minipage}%
+\hfill%
+% \begin{minipage}{.19\linewidth}
+%     \includegraphics[width=\linewidth]{nonlinear_svm}
+%     \llap{\raisebox{15ex}{Custom kernel SVM ~}}
+% \end{minipage}%
+\hfill%
+% Second row ---}}}
+
+\smallskip
+~
+
+
+\end{frame}
+\end{document}
