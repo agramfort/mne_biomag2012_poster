@@ -1,3 +1,4 @@
+# for some reason the first line is not shown on the poster
 import mne
 
 fname = 'raw.fif'
@@ -23,8 +24,7 @@ evoked = epochs.average()
 cov = mne.compute_covariance(epochs, tmax=0)
 
 # Plot evoked
-from mne.viz import plot_evoked
-plot_evoked(evoked)
+mne.viz.plot_evoked(evoked)
 
 # Inverse modeling
 
@@ -34,7 +34,8 @@ fwd = mne.read_forward_solution(fwd_fname, surf_ori=True)
 inv = mne.minimum_norm.make_inverse_operator(raw.info, fwd, cov, loose=0.2)
 
 # compute inverse solution
-stc = mne.minimum_norm.apply_inverse(evoked, inv, lambda2=1 / 3.0 ** 2, method='dSPM')
+stc = mne.minimum_norm.apply_inverse(evoked, inv, lambda2=1 / 3.0 ** 2,
+                                     method='dSPM')
 
 # morph it to average brain for group study
 stc_avg = mne.morph_data('sample', 'fsaverage', stc, 5, smooth=5)
