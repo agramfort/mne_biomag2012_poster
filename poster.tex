@@ -196,6 +196,7 @@
 % \beamertemplateshadingbackground{shadingcolor!50}{white}
 \begin{frame}[plain,t]
 \postertitle{%
+\smallskip
 The MNE package for M/EEG data processing
 }
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -223,7 +224,7 @@ The MNE package for M/EEG data processing
     \mbox{\hspace{-1em}%
     \name{A. Gramfort\MGH\PARIETAL, M. Luessi\MGH, M. H\"am\"al\"ainen\MGH, YOU ?}}\\
 
-    {\small\tt gramfort@nmr.mgh.harvard.edu}
+    {\small\tt mne\_analysis@nmr.mgh.harvard.edu}
 
     \mbox{$^\dagger$ MGH, Harvard Medical School, USA \hspace{0.2cm}
           $^\ddagger$ Parietal Project Team, INRIA, France}
@@ -251,6 +252,8 @@ The MNE package for M/EEG data processing
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %-------------------------------------------------------------------------------
 
+\medskip
+
 \begin{minipage}[B]{0.47\linewidth}
     \begin{myexampleblock}{Features}
         \subsection{Preprocessing}
@@ -260,11 +263,13 @@ The MNE package for M/EEG data processing
         \subsection{Inverse modeling}
         \mydot MNE - dSPM - sLORETA - LCMV - MxNE\\
         \subsection{Statistics}
+        \mydot Time-Frequency (Phase-Lock, Induced Power)\\
         \mydot Parametric and non-parametric (sensor \& source space)
     \end{myexampleblock}
+    \smallskip
     \begin{myalertblock}{Project vision \& Goals}
-        \mydot State of the art pipeline\\
-        \mydot Well documented, tested and easy to use\\
+        \mydot State of the art with many examples\\
+        \mydot Documented, tested and easy to use\\
         \mydot Open development, collaboration between different labs\\
         \mydot Sharing best practices for analysis\\
         \mydot Make reproducible research with M/EEG\\
@@ -275,9 +280,10 @@ The MNE package for M/EEG data processing
 \begin{minipage}{.5\linewidth}
     \Large\bfseries
     \begin{minipage}{\linewidth}
-        ~ MNE-suite:
+        \centering
+        The ``MNE-suite''
 
-    ~\! C / Unix \& Matlab \& Python
+    C / Unix \& Matlab \& Python
     \begin{center}
         \includegraphics[width=\linewidth]{mne-screenshot-montage.png}%
     \end{center}
@@ -286,11 +292,11 @@ The MNE package for M/EEG data processing
 % First row ---}}}
 
 \begin{minipage}{\linewidth}
-    \smallskip
+    \medskip
 \center
 {\huge\bfseries\sffamily http://martinos.org/mne~~~~~~http://github.com/mne-tools}
 \end{minipage}
-
+\medskip
 \vfillll
 
 % Bottom banner {{{---
@@ -359,19 +365,19 @@ The MNE package for M/EEG data processing
 % Bottom banner {{{---
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\begin{minipage}{.24\linewidth}
-    \includegraphics[width=\linewidth]{psd.png}%
+\begin{minipage}{.27\linewidth}
+    \includegraphics[width=\linewidth]{psd.pdf}%
 \end{minipage}%
 \hfill%
-\begin{minipage}{.20\linewidth}
-    \includegraphics[width=\linewidth]{plot_cov.png}
+\begin{minipage}{.27\linewidth}
+    \includegraphics[width=\linewidth]{stats_cluster_tfr.pdf}
 \end{minipage}%
 \hfill%
-\begin{minipage}{.18\linewidth}
+\begin{minipage}{.23\linewidth}
     \includegraphics[width=\linewidth]{pysurfer.png}%
 \end{minipage}%
 \hfill%
-\begin{minipage}{.18\linewidth}
+\begin{minipage}{.21\linewidth}
     \includegraphics[width=\linewidth]{mne_lcmv_freeview.png}%
 \end{minipage}%
 \hfill%
@@ -381,6 +387,7 @@ The MNE package for M/EEG data processing
 % \end{minipage}%
 \hfill%
 % Second row ---}}}
+\medskip
 
 \smallskip
 ~
