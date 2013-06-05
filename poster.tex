@@ -1,4 +1,5 @@
-\documentclass[slidestop,11pt,compress,serif]{beamer} % {{{--
+\documentclass[t,11pt,compress]{beamer} % {{{--
+\usefonttheme{serif}
 % \documentclass[slidestop,11pt,compress,serif,draft]{beamer} % {{{--
 
 \usepackage{gaelposter}
@@ -14,7 +15,7 @@
 \usepackage{calc}
 \usepackage{agmacros}
 
-\usepackage{pgf,pgfarrows,pgfnodes}
+\usepackage{pgf}
 
 \graphicspath{{img/}}
 
@@ -194,7 +195,7 @@
 \setbeamercolor{normal text}{bg=shadingcolor!25}
 \beamertemplateshadingbackground{white}{white}
 % \beamertemplateshadingbackground{shadingcolor!50}{white}
-\begin{frame}[plain,t]
+\begin{frame}[plain,t,c]
 \postertitle{%
 \smallskip
 The MNE package for M/EEG data processing
@@ -215,20 +216,28 @@ The MNE package for M/EEG data processing
 \vspace*{-0.5em}%
 \mybox[width=0.64\linewidth, opacity=0., color=white]{%
     \small
-    \def\MGH{\unskip$^{\dagger}$}
-    \def\PARIETAL{\unskip$^{\ddagger}$}
-    \def\ILMENAU{\unskip$^{\star}$}
-    \def\LSS{\unskip$^{\ast}$}
+    \def\PARISTECH{\unskip$^1$}
+    \def\MGH{\unskip$^2$}
+    \def\UW{\unskip$^3$}
+    \def\JUELICH{\unskip$^4$}
+    \def\ILMENAU{\unskip$^5$}
+    \def\NYU{\unskip$^6$}
 
     \begin{center}
     \vspace*{-1.3ex}%
     \mbox{\hspace{-1em}%
-    \name{A. Gramfort\MGH\PARIETAL, M. Luessi\MGH, M. H\"am\"al\"ainen\MGH, YOU ?}}\\
-
-    {\small\tt mne\_analysis@nmr.mgh.harvard.edu}
-
-    \mbox{$^\dagger$ MGH, Harvard Medical School, USA \hspace{0.2cm}
-          $^\ddagger$ Parietal Project Team, INRIA, France}
+    \name{A. Gramfort\PARISTECH, M. Luessi\MGH, E. Larson\UW, D.A. Engemann\JUELICH},}
+    \mbox{\hspace{-1em}%
+    \name{D. Strohmeier\ILMENAU, C. Brodbeck\NYU, M. Hamalainen\MGH}}
+	\vspace{0.05cm}
+	\def\affilbr{\hspace{0.2cm}}
+    \parbox{13cm}{\tiny\center
+                 \PARISTECH Parietal Project Team, INRIA, France \affilbr
+                 \MGH MGH, Harvard Medical School, USA \affilbr
+                 \UW U. of Washington, USA\\
+                 \JUELICH INM-3, Juelich Research Center, Germany \affilbr
+                 \ILMENAU Ilmenau U., Germany \affilbr
+                 \NYU New York U., USA}
     \end{center}
 }
 %
@@ -258,22 +267,21 @@ The MNE package for M/EEG data processing
 \begin{minipage}[B]{0.47\linewidth}
     \begin{myexampleblock}{Features}
         \subsection{Preprocessing}
-        \mydot Review raw data, filter, correct ECG / EOG with SSPs\\
-        \subsection{Forward modeling}
+        \mydot Review raw data, filter, correct ECG / EOG with SSPs, ICA\\
+        \subsection{Forward \& inverse modeling}
         \mydot Automatic BEM with FreeSurfer reconstruction\\
-        \subsection{Inverse modeling}
-        \mydot MNE - dSPM - sLORETA - LCMV - MxNE\\
-        \subsection{Statistics}
+        \mydot MNE - dSPM - sLORETA - LCMV - (TF-)MxNE\\
+        \subsection{Statistics (sensor \& source space)}
         \mydot Time-Frequency (Phase-Lock, Induced Power)\\
-        \mydot Parametric and non-parametric (sensor \& source space)
+        \mydot Parametric and non-parametric stats, with clustering\\
+        \subsection{Connectivity (sensor \& source space)}
+        \mydot Functional \& effective connectivity measures
     \end{myexampleblock}
     \smallskip
     \begin{myalertblock}{Project vision \& Goals}
-        \mydot State of the art with many examples\\
-        \mydot Documented, tested, and easy to use\\
-        \mydot Open development, collaboration between different labs\\
-        \mydot Sharing best practices for analysis\\
-        \mydot Make reproducible research with M/EEG\\
+        \mydot State of the art, many examples, documented \& tested\\
+        \mydot Open development, collaboration between many labs\\
+        \mydot Sharing best practices, making reproducible research\\
     \end{myalertblock}
 \end{minipage}%
 %
@@ -329,10 +337,10 @@ The MNE package for M/EEG data processing
             \mydot Python: general-purpose, high-level language \\
             \mydot Free (can run on a cluster without license problems)\\
             \mydot Permissive BSD license (allows use in commercial products)\\
-            \mydot Open http://github.com/mne-tools/mne-python\\
-            \mydot 14 contributors so far
+            \mydot Many third-party packages easily integrated (e.g., ML)\\
+            \mydot Open, 29 contributors so far ($\approx 8$ person-years of effort)
             \begin{center}
-                \includegraphics[width=0.8\linewidth]{sloc_july_2012.png}%
+                \includegraphics[width=0.8\linewidth]{sloc_june_2013.png}%
             \end{center}
         \end{myexampleblock}
         \begin{myalertblock}{Learn more}
@@ -366,14 +374,7 @@ The MNE package for M/EEG data processing
 % Bottom banner {{{---
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\begin{minipage}{.27\linewidth}
-    \includegraphics[width=\linewidth]{psd.pdf}%
-\end{minipage}%
-\hfill%
-\begin{minipage}{.27\linewidth}
-    \includegraphics[width=\linewidth]{stats_cluster_tfr.pdf}
-\end{minipage}%
-\hfill%
+\begin{minipage}{1.09\linewidth}
 \begin{minipage}{.23\linewidth}
     \includegraphics[width=\linewidth]{pysurfer.png}%
 \end{minipage}%
@@ -382,12 +383,18 @@ The MNE package for M/EEG data processing
     \includegraphics[width=\linewidth]{mne_lcmv_freeview.png}%
 \end{minipage}%
 \hfill%
-
+\begin{minipage}{.27\linewidth}
+    \includegraphics[width=\linewidth]{stats_cluster_tfr.pdf}
+\end{minipage}%
+\hfill%
+\begin{minipage}{.27\linewidth}
+    \includegraphics[width=0.68\linewidth]{functional_connectivity.pdf}%
+\end{minipage}\end{minipage}
 % \medskip
 
 \begin{minipage}{\linewidth}
     \center
-    Funded by: NIH P41RR14075, R01EB009048, NSF 0958669
+    Funded by: NIH P41RR14075, R01EB009048, F32DC012456, NSF 0958669, 1042134
 \end{minipage}
 
 \smallskip
