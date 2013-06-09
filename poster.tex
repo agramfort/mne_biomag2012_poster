@@ -14,6 +14,15 @@
 \usepackage{multicol}
 \usepackage{calc}
 \usepackage{agmacros}
+\usepackage{color}
+
+% add some MNE + nice colors
+\definecolor{mnewebblue}{HTML}{08547D}       
+\definecolor{mnered}{HTML}{C72219}       
+\definecolor{mneblue}{HTML}{392FC2}       
+\definecolor{mnewebgreen}{HTML}{00711B}       
+\definecolor{mygray}{HTML}{00711B}       
+
 
 \usepackage{pgf}
 
@@ -81,7 +90,7 @@
 
 \newcommand{\blocktitle}[2]{
     \vfillll%
-    \hspace*{-1pt}\mybox[corners=0pt, opacity=0.9, color=#2]{%
+    \hspace*{-1pt}\mybox[corners=0pt, opacity=1.0, color=#2]{%
     {\sffamily\bfseries\Large%
     \raisebox{-.4ex}{\rule{0pt}{1ex}}%
     \color{white}{#1}}%
@@ -101,7 +110,7 @@
 \color{gray}\fbox{#1}}
 
 \newcommand{\mydot}{\hspace*{-0.3ex}%
-\raisebox{0.2ex}{\color{structurecolor}\rule{1.1ex}{1.1ex}}%
+\raisebox{0.2ex}{\color{mnewebblue}\rule{1.1ex}{1.1ex}}%
 \hspace*{0.4ex}%
 }
 
@@ -120,7 +129,7 @@
 
 % Def BLOCK environment
 \newenvironment{myblock}[1]{
-    \blocktitle{#1}{Blue}%
+    \blocktitle{#1}{mnewebblue}%
     \vspace*{-1.5ex}%
     \mybox[corners=0pt, color=white, width=\linewidth]{
 }{
@@ -130,7 +139,7 @@
 % Def Alert BLOCK environment
 \newenvironment{myalertblock}[1]{
     % \blocktitle{#1}{Red!90!black}%
-    \blocktitle{#1}{DarkRed}%
+    \blocktitle{#1}{mnered}%
     \vspace*{-1.5ex}%
     \mybox[corners=0pt, color=white, width=\linewidth]{
 }{
@@ -140,7 +149,8 @@
 % Def Example BLOCK environment
 \newenvironment{myexampleblock}[1]{
     % \blocktitle{#1}{green!40!black}%
-    \blocktitle{#1}{Green}%
+    \blocktitle{#1}{mnewebblue}%
+    % \blocktitle{#1}{mnewebgreen}%
     \vspace*{-1.5ex}%
     \mybox[corners=0pt, color=white, width=\linewidth]{
 }{
@@ -192,7 +202,14 @@
 }%
 }%
 
+% \setbeamercolor{normal text}{bg=shadingcolor!25}
+% \setbeamercolor{frametitle}{bg=mnewebblue}
 \setbeamercolor{normal text}{bg=shadingcolor!25}
+
+\setbeamercolor{frametitle}{bg=mnewebblue, fg=White}
+\setbeamercolor{frametitle right}{bg=mnewebblue}
+\setbeamercolor{structure}{fg=mnewebblue, bg=mnewebblue}
+
 \beamertemplateshadingbackground{white}{white}
 % \beamertemplateshadingbackground{shadingcolor!50}{white}
 \begin{frame}[plain,t,c]
@@ -235,7 +252,7 @@ The MNE package for M/EEG data processing
                  \PARISTECH Telecom ParisTech, CNRS LTCI - CEA/Neurospin \affilbr
                  \MGH MGH, Harvard Med. School, USA \affilbr
                  \UW U. of Washington, USA\\
-                 \JUELICH INM-3, Juelich Research Center, Germany \affilbr
+                 \JUELICH CNS (INM-3), Juelich Research Center, Germany \affilbr
                  \ILMENAU Ilmenau U., Germany \affilbr
                  \NYU New York U., USA}
     \end{center}
@@ -243,14 +260,20 @@ The MNE package for M/EEG data processing
 %
 \hfill
 %
-\begin{minipage}{0.165\linewidth}
+\begin{minipage}{0.14\linewidth}
     \hfill
     \centerline{%
     \includegraphics[width=0.44\linewidth]{logo_telecom}
     \,
     \includegraphics[width=0.55\linewidth]{logo_cea}
     }
+    \,
+    \includegraphics[width=0.60\linewidth]{logo_fzj}
+    \,
+    \includegraphics[width=0.30\linewidth]{logo_cns}
+  
 \end{minipage}
+
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % ---}}}
 
@@ -386,31 +409,29 @@ The MNE package for M/EEG data processing
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \begin{minipage}{1.09\linewidth}
+
+\begin{minipage}{.19\linewidth}
+    \includegraphics[width=\linewidth]{ica.pdf}%
+\end{minipage}%
 \begin{minipage}{.23\linewidth}
-    \includegraphics[width=\linewidth]{pysurfer.png}%
-\end{minipage}%
-\hfill%
-\begin{minipage}{.21\linewidth}
-    \includegraphics[width=\linewidth]{mne_lcmv_freeview.png}%
-\end{minipage}%
-\hfill%
-\begin{minipage}{.27\linewidth}
     \includegraphics[width=\linewidth]{stats_cluster_tfr.pdf}
 \end{minipage}%
-\hfill%
-\begin{minipage}{.27\linewidth}
-    \includegraphics[width=0.68\linewidth]{functional_connectivity.pdf}%
-\end{minipage}\end{minipage}
+\hspace{2.5em}%
+\begin{minipage}{.21\linewidth}
+    \includegraphics[width=\linewidth]{pysurfer.png}%
+\end{minipage}%
+\hspace{2em}%
+\begin{minipage}{.20\linewidth}
+    \includegraphics[width=0.87\linewidth]{functional_connectivity.pdf}%
+\end{minipage}
 % \medskip
-
+\vspace{1em}%
+\end{minipage}
 \begin{minipage}{\linewidth}
     \center
     Funded by: NIH grants P41RR14075, R01EB009048, F32DC012456 and NSF awards 0958669, 1042134
 \end{minipage}
-
 \smallskip
 ~
-
-
 \end{frame}
 \end{document}
