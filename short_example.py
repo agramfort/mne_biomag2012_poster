@@ -1,9 +1,8 @@
 # for some reason the first line is not shown on the poster
 import mne
 
-# load data
 fname = 'raw.fif'
-raw = mne.fiff.Raw(fname)
+raw = mne.io.Raw(fname)  # load data
 raw.info['bads'] = ['MEG 2443', 'EEG 053']  # mark bad channels
 
 # band-pass filter data in beta band, and save it
@@ -11,8 +10,7 @@ raw.filter(13.0, 30.0, filter_length=4096, n_jobs='cuda')
 raw.save(fname[:-4] + '_beta.fif')
 
 # extract epochs
-picks = mne.fiff.pick_types(raw.info, meg=True, eeg=True, eog=True,
-                            exclude='bads')
+picks = mne.pick_types(raw.info, meg=True, eeg=True, eog=True)
 events = mne.find_events(raw)
 epochs = mne.Epochs(raw, events, event_id=1, tmin=-0.2, tmax=0.5, proj=True,
                     picks=picks, baseline=(None, 0), preload=True,

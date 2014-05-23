@@ -215,7 +215,7 @@
 \begin{frame}[plain,t,c]
 \postertitle{%
 \smallskip
-The MNE package for M/EEG data processing
+MNE for MEG/EEG data processing: What's up?
 }
 \vspace*{-0.2em}%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -225,14 +225,14 @@ The MNE package for M/EEG data processing
     \vspace{2ex}
     \centerline{%
     \hspace{3mm}
-    \includegraphics[width=1.2\linewidth]{MClogo.pdf}%
+    \includegraphics[width=0.8\linewidth]{logos_left.png}%
     }
 \end{minipage}
 %
 \hfill
 %
 \vspace*{-0.2em}%
-\mybox[width=0.64\linewidth, opacity=0., color=white]{%
+\mybox[width=0.67\linewidth, opacity=0., color=white]{%
     \small
     \def\PARISTECH{\unskip$^1$}
     \def\MGH{\unskip$^2$}
@@ -240,13 +240,15 @@ The MNE package for M/EEG data processing
     \def\JUELICH{\unskip$^4$}
     \def\ILMENAU{\unskip$^5$}
     \def\NYU{\unskip$^6$}
+    \def\STIRLING{\unskip$^7$}
+    \def\AALTO{\unskip$^8$}
 
     \begin{center}
     % \vspace*{-0.8ex}%
     \mbox{\hspace{-1em}%
-    \name{A. Gramfort\PARISTECH, M. Luessi\MGH, E. Larson\UW, D.A. Engemann\JUELICH},}
+    \name{A. Gramfort\PARISTECH, M. Luessi\MGH, E. Larson\UW, D.A. Engemann\JUELICH}, D. Strohmeier\ILMENAU}
     \mbox{\hspace{-1em}%
-    \name{D. Strohmeier\ILMENAU, C. Brodbeck\NYU, M. H\"am\"al\"ainen\MGH}}
+    \name{C. Brodbeck\NYU, R. Goj\STIRLING, M. Jas\AALTO, T. Brooks\NYU, L. Parkkonen\AALTO, M. H\"am\"al\"ainen\MGH}}
 	\vspace{0.05cm}
 	\def\affilbr{\hspace{0.2cm}}
     \parbox{13cm}{\tiny\center
@@ -255,6 +257,8 @@ The MNE package for M/EEG data processing
                  \UW U. of Washington, USA\\
                  \JUELICH CNS (INM-3), Juelich Research Center, Germany \affilbr
                  \ILMENAU TU Ilmenau, Germany \affilbr
+                 \STIRLING Stirling, UK \affilbr
+                 \AALTO AALTO, Helsinki \affilbr
                  \NYU New York U., USA}
     \end{center}
 }
@@ -262,7 +266,7 @@ The MNE package for M/EEG data processing
 \hfill
 %
 \begin{minipage}{0.15\linewidth}
-    \vspace{2ex}
+    \vspace{1ex}
     \hfill
     \centerline{%
     \includegraphics[width=0.188\linewidth]{logo_telecom}
@@ -314,7 +318,7 @@ The MNE package for M/EEG data processing
 \begin{minipage}[B]{0.47\linewidth}
     \vspace*{0.5em}%
     \begin{myalertblock}{The MNE Software Vision}
-        \mydot State-of-the-art methods, many examples, documented and tested\\
+        \mydot State-of-the-art methods, documented and tested\\
         \mydot Open development: collaboration between several centers\\
         \mydot Share the best practices, promote reproducible research\\
     \end{myalertblock}
@@ -325,10 +329,11 @@ The MNE package for M/EEG data processing
         \mydot Review raw data, filter, correct ECG / EOG with SSPs, ICA\\
         \subsection{Forward \& inverse modeling}
         \mydot FreeSurfer structural data: Automatic forward modeling\\
-        \mydot MNE -- dSPM -- sLORETA -- (TF-)MxNE -- LCMV\\
+        \mydot MNE -- dSPM -- sLORETA -- (TF-)MxNE -- LCMV -- DICS\\
         \subsection{Statistics (sensor and source spaces)}
         \mydot Time-Frequency (Phase-Locking, Induced Power)\\
         \mydot Parametric and non-parametric stats, with clustering\\
+        \mydot Decoding/MVPA (SVM, ...)\\
         \subsection{Connectivity (sensor and source spaces)}
         \mydot Functional and effective connectivity measures
     \end{myexampleblock}
@@ -343,7 +348,7 @@ The MNE package for M/EEG data processing
         The MNE Software Family\\
     MNE-C -- MNE-Matlab -- MNE-Python
     \begin{center}
-        \includegraphics[width=\linewidth]{mne-screenshot-montage.png}%
+        \includegraphics[width=\linewidth]{figure2.png}%
     \end{center}
     \end{minipage}
 \end{minipage}
@@ -362,9 +367,16 @@ The MNE package for M/EEG data processing
 \begin{minipage}{0.05\linewidth}
     \includegraphics[width=0.9\linewidth]{paper_logo.pdf}%
 \end{minipage}
-\begin{minipage}{0.87\linewidth}
+\begin{minipage}{0.93\linewidth}
     A. Gramfort, M. Luessi, E. Larson, D. Engemann, D. Strohmeier, C. Brodbeck, L. Parkkonen, M. H\"am\"al\"ainen\hfill
-    \emph{MNE software for processing MEG and EEG data}, Submitted.
+    \emph{MNE software for processing MEG and EEG data}, Neuroimage, 2014
+\end{minipage}\\
+\begin{minipage}{0.05\linewidth}
+    \includegraphics[width=0.9\linewidth]{paper_logo.pdf}%
+\end{minipage}
+\begin{minipage}{0.93\linewidth}
+    A. Gramfort, M. Luessi, E. Larson, D. Engemann, D. Strohmeier, C. Brodbeck, R. Goj, M. Jas, T. Brooks, L. Parkkonen, M. H\"am\"al\"ainen, 
+    \emph{MEG and EEG data analysis with MNE-Python}, Frontiers in Neuroscience, 2013
 \end{minipage}
 \end{minipage}
 % \medskip
@@ -401,19 +413,20 @@ The MNE package for M/EEG data processing
             \mydot Python: general-purpose, high-level language \\
             \mydot Free: can run on a cluster without license problems\\
             \mydot Permissive BSD license: allows use in commercial products\\
-            \mydot Many third-party packages easily integrated, e.g., ML\\
-            \mydot Open, 29 contributors so far: $\approx 8$ person-years of effort
+            \mydot 46 contributors in last 12 months $\approx$ 13 person-years of effort
             \begin{center}
-                \includegraphics[width=0.8\linewidth]{sloc_june_2013.png}%
+                \vspace{-0.5em}
+                \includegraphics[width=0.8\linewidth]{sloc_june_2014.png}%
             \end{center}
         \end{myexampleblock}
+        \vspace{-0.8em}
         \begin{myalertblock}{Learn more}
             \begin{minipage}{1.\linewidth}
                 \mydot Mailing list: mne\_analysis@nmr.mgh.harvard.edu\\
                 \mydot http://martinos.org/mne/ (general doc)\\
-                \mydot http://martinos.org/mne/python\_tutorial.html\\
-                \mydot http://martinos.org/mne/auto\_examples/ (> 70 demos)\\
+                \mydot http://martinos.org/mne/dev/whats\_new.html\\
                 \mydot http://mne-tools.github.com/mne-python-intro-slides\\
+                \mydot http://martinos.org/mne/auto\_examples/ (> 70 demos)\\
             \end{minipage}
         \end{myalertblock}
     \end{minipage}
@@ -440,19 +453,21 @@ The MNE package for M/EEG data processing
 
 \begin{minipage}{1.09\linewidth}
 
-\begin{minipage}{.19\linewidth}
-    \includegraphics[width=\linewidth]{ica.pdf}%
+\hspace{0.5em}%
+\begin{minipage}{.22\linewidth}
+    \includegraphics[width=\linewidth]{ica_via_browser.pdf}%
 \end{minipage}%
+\hspace{1.5em}%
 \begin{minipage}{.23\linewidth}
     \includegraphics[width=\linewidth]{stats_cluster_tfr.pdf}
 \end{minipage}%
-\hspace{2.5em}%
-\begin{minipage}{.21\linewidth}
-    \includegraphics[width=\linewidth]{pysurfer.png}%
+\hspace{1.5em}%
+\begin{minipage}{.18\linewidth}
+    \includegraphics[width=\linewidth]{volume_tc.png}%
 \end{minipage}%
-\hspace{2em}%
+\hspace{1.5em}%
 \begin{minipage}{.20\linewidth}
-    \includegraphics[width=0.87\linewidth]{functional_connectivity.pdf}%
+    \includegraphics[width=0.8\linewidth]{tf_mxne.png}%
 \end{minipage}
 % \medskip
 \vspace{1em}%
