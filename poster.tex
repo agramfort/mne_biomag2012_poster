@@ -222,10 +222,11 @@ MNE for MEG/EEG data processing: What's up?
 % Authors and logos {{{---
 % \begin{minipage}{0.165\linewidth}
 \begin{minipage}{0.155\linewidth}
-    \vspace{2ex}
+    % \vspace{0.5ex}
     \centerline{%
     \hspace{3mm}
     \includegraphics[width=0.8\linewidth]{logos_left.png}%
+    \hspace{3mm}
     }
 \end{minipage}
 %
@@ -247,29 +248,29 @@ MNE for MEG/EEG data processing: What's up?
     \begin{center}
     % \vspace*{-0.8ex}%
     \mbox{\hspace{-1em}%
-    \name{A. Gramfort\PARISTECH^{,}\NSPIN, M. Luessi\MGH, E. Larson\UW, D.A.        
-	      Engemann\NSPIN^{,}\JUELICH, D. Strohmeier\ILMENAU}}
+    \name{A. Gramfort\PARISTECH$^{,}$\NSPIN, M. Luessi\MGH, E. Larson\UW, D.A.        
+	      Engemann\NSPIN$^{,}$\JUELICH, D. Strohmeier\ILMENAU}}
     \mbox{\hspace{-1em}%
-    \name{C. Brodbeck\NYU, R. Goj\STIRLING, M. Jas\AALTO, T. Brooks\NYU, L. Parkkonen\AALTO, M. H\"am\"al\"ainen\MGH}}
+    \name{C. Brodbeck\NYU, R. Goj\STIRLING, M. Jas\AALTO, T. Brooks\NYU, L. Parkkonen\AALTO, M. H\"am\"al\"ainen\MGH$^,$\AALTO}}
 	\vspace{0.05cm}
 	\def\affilbr{\hspace{0.2cm}}
     \parbox{13cm}{\tiny\center
                  \PARISTECH Telecom ParisTech, CNRS LTCI, Paris, France \affilbr
-                 \NSPIN CEA-INSERM Neurospin, Gif-sur-Yvette, France \affilbr
+                 \NSPIN CEA-INSERM Neurospin, Gif-sur-Yvette, France \affilbr\\
                  \MGH MGH, Harvard Med. School, USA \affilbr
-                 \UW U. of Washington, USA\\
+                 \UW Univ. of Washington, USA\\
                  \JUELICH CNS (INM-3), Juelich Research Center, Germany \affilbr
                  \ILMENAU TU Ilmenau, Germany \affilbr
-                 \STIRLING Stirling, UK \affilbr
-                 \AALTO AALTO, Helsinki \affilbr
-                 \NYU New York U., USA}
+                 \STIRLING Stirling, UK \affilbr\\
+                 \AALTO AALTO Univ., Finland \affilbr
+                 \NYU New York Univ., USA}
     \end{center}
 }
 %
 \hfill
 %
 \begin{minipage}{0.15\linewidth}
-    \vspace{1ex}
+    \vspace{0ex}
     \hfill
     \centerline{%
     \includegraphics[width=0.188\linewidth]{logo_telecom}
@@ -316,7 +317,7 @@ MNE for MEG/EEG data processing: What's up?
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %-------------------------------------------------------------------------------
 
-\smallskip
+% \smallskip
 
 \begin{minipage}[B]{0.47\linewidth}
     \vspace*{0.5em}%
@@ -329,9 +330,9 @@ MNE for MEG/EEG data processing: What's up?
     \vspace*{-0.6em}%
     \begin{myexampleblock}{Software Features}
         \subsection{Preprocessing}
-        \mydot Review raw data, filter, correct ECG / EOG with SSPs, ICA\\
+        \mydot Review raw data, filter, dampen ECG/EOG with SSPs, ICA\\
         \subsection{Forward \& inverse modeling}
-        \mydot FreeSurfer structural data: Automatic forward modeling\\
+        \mydot Automatic forward modeling with FreeSurfer\\
         \mydot MNE -- dSPM -- sLORETA -- (TF-)MxNE -- LCMV -- DICS\\
         \subsection{Statistics (sensor and source spaces)}
         \mydot Time-Frequency (Phase-Locking, Induced Power)\\
@@ -345,11 +346,12 @@ MNE for MEG/EEG data processing: What's up?
 %
 \hfill%
 \begin{minipage}{.5\linewidth}
-    \Large\bfseries
+    \vspace{0.5em}
     \begin{minipage}{\linewidth}
-        \centering
-        The MNE Software Family\\
-    MNE-C -- MNE-Matlab -- MNE-Python
+    \subsection{What's new}
+    \mydot TF Beamformers, IO (BDF/EDF, EGI, etc.), field maps, realtime,
+    source spaces + forward in Python, decoding/MVPA, GUIs\\
+    \mydot http://martinos.org/mne/dev/whats\_new.html
     \begin{center}
         \includegraphics[width=\linewidth]{figure2.png}%
     \end{center}
@@ -427,7 +429,7 @@ MNE for MEG/EEG data processing: What's up?
             \begin{minipage}{1.\linewidth}
                 \mydot Mailing list: mne\_analysis@nmr.mgh.harvard.edu\\
                 \mydot http://martinos.org/mne/ (general doc)\\
-                \mydot http://martinos.org/mne/dev/whats\_new.html\\
+                \mydot http://martinos.org/mne/dev/python\_tutorial.html\\
                 \mydot http://mne-tools.github.com/mne-python-intro-slides\\
                 \mydot http://martinos.org/mne/auto\_examples/ (> 70 demos)\\
             \end{minipage}
@@ -456,21 +458,25 @@ MNE for MEG/EEG data processing: What's up?
 
 \begin{minipage}{1.09\linewidth}
 
-\hspace{0.5em}%
-\begin{minipage}{.22\linewidth}
+\hspace{-0.1em}%
+\begin{minipage}{.21\linewidth}
     \includegraphics[width=\linewidth]{ica_via_browser.pdf}%
 \end{minipage}%
-\hspace{1.5em}%
-\begin{minipage}{.23\linewidth}
-    \includegraphics[width=\linewidth]{stats_cluster_tfr.pdf}
+\hspace{.4em}%
+\begin{minipage}{.16\linewidth}
+    \includegraphics[width=\linewidth]{plot_meg_eeg_fields_3d_1.png}
 \end{minipage}%
-\hspace{1.5em}%
-\begin{minipage}{.18\linewidth}
+\hspace{.4em}%
+\begin{minipage}{.165\linewidth}
     \includegraphics[width=\linewidth]{volume_tc.png}%
 \end{minipage}%
-\hspace{1.5em}%
-\begin{minipage}{.20\linewidth}
-    \includegraphics[width=0.8\linewidth]{tf_mxne.png}%
+\hspace{.4em}%
+\begin{minipage}{.155\linewidth}
+    \includegraphics[width=\linewidth]{tf_mxne.png}%
+\end{minipage}
+\hspace{.4em}%
+\begin{minipage}{.19\linewidth}
+    \includegraphics[width=\linewidth]{plot_decoding_time_generalization_1.png}%
 \end{minipage}
 % \medskip
 \vspace{1em}%
