@@ -215,7 +215,7 @@
 \begin{frame}[plain,t,c]
 \postertitle{%
 \smallskip
-MNE for MEG/EEG data processing: What's up?
+Trends in MEG/EEG data processing using MNE
 }
 \vspace*{-0.2em}%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -237,33 +237,41 @@ MNE for MEG/EEG data processing: What's up?
     \small
     \def\PARISTECH{\unskip$^1$}
     \def\NSPIN{\unskip$^2$}
-    \def\MGH{\unskip$^3$}
-    \def\UW{\unskip$^4$}
-    \def\JUELICH{\unskip$^5$}
+    \def\UW{\unskip$^3$}
+    \def\MGH{\unskip$^4$}
+    \def\NYU{\unskip$^5$}
     \def\ILMENAU{\unskip$^6$}
-    \def\NYU{\unskip$^7$}
-    \def\STIRLING{\unskip$^8$}
-    \def\AALTO{\unskip$^9$}
+    \def\STIRLING{\unskip$^7$}
+    \def\LEUVEN{\unskip$^{8}$}
+    \def\UCSF{\unskip$^{9}$}
+    \def\GRAZ{\unskip$^{10}$}
+    \def\AALTO{\unskip$^{11}$}
 
     \begin{center}
     % \vspace*{-0.8ex}%
     \mbox{\hspace{-1em}%
-    \name{A. Gramfort\PARISTECH$^{,}$\NSPIN, M. Luessi\MGH, E. Larson\UW, D.A.        
-	      Engemann\NSPIN$^{,}$\JUELICH, D. Strohmeier\ILMENAU}}
+    \name{A. Gramfort\PARISTECH$^{,}$\NSPIN, D.A. Engemann\NSPIN, E. Larson\UW, M. Luessi\MGH, C. Brodbeck\NYU}}
     \mbox{\hspace{-1em}%
-    \name{C. Brodbeck\NYU, R. Goj\STIRLING, M. Jas\AALTO, T. Brooks\NYU, L. Parkkonen\AALTO, M. H\"am\"al\"ainen\MGH$^,$\AALTO}}
+    \name{M. Jas\PARISTECH, T. Brooks\NYU, D. Strohmeier\ILMENAU, R. Goj\STIRLING, M. van Vliet\LEUVEN, A. Leggitt\UCSF}}
+    \mbox{\hspace{-1em}
+    \name{M. Billinger\GRAZ, H. Bharadwaj\MGH, L. Parkkonen\AALTO, M. H\"am\"al\"ainen\MGH$^,$\AALTO}}
 	\vspace{0.05cm}
 	\def\affilbr{\hspace{0.2cm}}
     \parbox{13cm}{\tiny\center
                  \PARISTECH Telecom ParisTech, CNRS LTCI, Paris, France \affilbr
                  \NSPIN CEA-INSERM Neurospin, Gif-sur-Yvette, France \affilbr\\
+                 \UW Univ. of Washington, USA \affilbr
                  \MGH MGH, Harvard Med. School, USA \affilbr
-                 \UW Univ. of Washington, USA\\
-                 \JUELICH CNS (INM-3), Juelich Research Center, Germany \affilbr
+                 \NYU New York Univ., USA
+\affilbr\\
                  \ILMENAU TU Ilmenau, Germany \affilbr
-                 \STIRLING Stirling, UK \affilbr\\
-                 \AALTO Aalto Univ., Finland \affilbr
-                 \NYU New York Univ., USA}
+                 \STIRLING Stirling, UK \affilbr
+                 \LEUVEN KU Leuven, Belgium \affilbr
+                 \UCSF UC San Francisco, USA
+\affilbr\\
+                \GRAZ TU Graz, Austria \affilbr
+                \AALTO Aalto Univ., Finland \affilbr
+                 }
     \end{center}
 }
 %
@@ -334,10 +342,11 @@ MNE for MEG/EEG data processing: What's up?
         \subsection{Forward \& inverse modeling}
         \mydot Forward modeling with FreeSurfer-generated surfaces\\
         \mydot MNE -- dSPM -- sLORETA -- (TF-)MxNE -- LCMV -- DICS\\
+        %\mydot Dipole fitting -- RAP-MUSIC\\
         \subsection{Statistics (sensor and source spaces)}
         \mydot Time--Frequency (Phase-Locking, Induced Power)\\
         \mydot Parametric and non-parametric stats, with clustering\\
-        \mydot Decoding/MVPA (SVM, ...)\\
+        \mydot Decoding/MVPA (SVM, ...), CSP, Time decoding\\
         \subsection{Connectivity (sensor and source spaces)}
         \mydot Functional and effective connectivity measures
     \end{myexampleblock}
@@ -349,8 +358,7 @@ MNE for MEG/EEG data processing: What's up?
     \vspace{0.5em}
     \begin{minipage}{\linewidth}
     \subsection{What's new}
-    \mydot TF Beamformers, import of BDF/EDF/EGI formats, field maps, realtime analysis and classification,
-    source spaces + forward in Python, decoding/MVPA, GUIs, demo with SPM data\\
+    \mydot Dipole fitting, RAP-MUSIC algorithm, mixed source space, channel interpolation, automated regularization, and many more\\
     \mydot http://martinos.org/mne/dev/whats\_new.html
     \begin{center}
         \includegraphics[width=0.95\linewidth]{figure2.png}%
@@ -418,10 +426,10 @@ MNE for MEG/EEG data processing: What's up?
             \mydot Python: general-purpose, high-level language \\
             \mydot Free: can run on a cluster without license problems\\
             \mydot Permissive BSD license: allows use in commercial products\\
-            \mydot 46 contributors in last 12 months $\approx$ 13 person-years of effort
+            \mydot 47 contributors in last 12 months $\approx$ 13 person-years of effort
             \begin{center}
                 \vspace{-0.5em}
-                \includegraphics[width=0.8\linewidth]{sloc_june_2014.png}%
+                \includegraphics[width=0.8\linewidth]{sloc_may_2015.png}%
             \end{center}
         \end{myexampleblock}
         \vspace{-0.8em}
@@ -429,7 +437,7 @@ MNE for MEG/EEG data processing: What's up?
             \begin{minipage}{1.\linewidth}
                 \mydot Mailing list: mne\_analysis@nmr.mgh.harvard.edu\\
                 \mydot http://martinos.org/mne/ (general doc)\\
-                \mydot http://martinos.org/mne/dev/python\_tutorial.html\\
+                \mydot http://martinos.org/mne/python\_tutorial.html\\
                 \mydot http://mne-tools.github.com/mne-python-intro-slides\\
                 \mydot http://martinos.org/mne/auto\_examples/ (> 70 demos)\\
             \end{minipage}
