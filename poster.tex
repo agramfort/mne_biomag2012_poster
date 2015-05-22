@@ -270,7 +270,7 @@ Trends in MEG/EEG data processing using MNE
                  \UCSF UC San Francisco, USA
 \affilbr\\
                 \GRAZ TU Graz, Austria \affilbr
-                \AALTO Aalto Univ., Finland \affilbr
+                \AALTO Aalto Univ., Espoo, Finland \affilbr
                  }
     \end{center}
 }
@@ -293,6 +293,11 @@ Trends in MEG/EEG data processing using MNE
     \includegraphics[width=0.45\linewidth]{logo_fzj_cut}
     \,
     \includegraphics[width=0.21\linewidth]{logo_cns}
+    }
+    \centerline{%
+    \includegraphics[width=0.25\linewidth]{logo_icm.png}
+    \,
+    \includegraphics[width=0.4\linewidth]{logo_bu.png}
     }
   
 \end{minipage}
@@ -338,7 +343,7 @@ Trends in MEG/EEG data processing using MNE
     \vspace*{-0.6em}%
     \begin{myexampleblock}{Software Features}
         \subsection{Preprocessing}
-        \mydot Review raw data, filter, dampen ECG/EOG with SSP, ICA\\
+        \mydot Review raw data, filter, artifact reduction with SSP, ICA\\
         \subsection{Forward \& inverse modeling}
         \mydot Forward modeling with FreeSurfer-generated surfaces\\
         \mydot MNE -- dSPM -- sLORETA -- (TF-)MxNE -- LCMV -- DICS\\
@@ -358,10 +363,10 @@ Trends in MEG/EEG data processing using MNE
     \vspace{0.5em}
     \begin{minipage}{\linewidth}
     \subsection{What's new}
-    \mydot Dipole fitting, RAP-MUSIC, bad EEG/MEG channel interpolation, automated covariance regularization, multi-taper time-frequency, deep structures source spaces, basic ECOG support\\
+    \mydot Dipole fitting, RAP-MUSIC, interpolation of bad EEG/MEG channel, automated covariance regularization, multi-taper time-frequency, deep structures in source spaces, basic ECoG support\\
     \mydot http://martinos.org/mne/dev/whats\_new.html
     \begin{center}
-        \includegraphics[width=0.85\linewidth]{figure2.png}%
+        \includegraphics[width=0.95\linewidth]{mne_report.png}%
     \end{center}
     \end{minipage}
 \end{minipage}
@@ -439,7 +444,7 @@ Trends in MEG/EEG data processing using MNE
                 \mydot http://martinos.org/mne/ (general doc)\\
                 \mydot http://martinos.org/mne/python\_tutorial.html\\
                 \mydot http://mne-tools.github.com/mne-python-intro-slides\\
-                \mydot http://martinos.org/mne/auto\_examples/ (> 70 demos)\\
+                \mydot http://martinos.org/mne/auto\_examples/ (> 110 demos)\\
             \end{minipage}
         \end{myalertblock}
     \end{minipage}
@@ -459,7 +464,7 @@ Trends in MEG/EEG data processing using MNE
 
 \vfillll
 
-\vspace*{-0.5em}%
+\vspace*{-2.6em}%
 
 % Bottom banner {{{---
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -467,24 +472,24 @@ Trends in MEG/EEG data processing using MNE
 \begin{minipage}{1.09\linewidth}
 
 \hspace{-0.1em}%
-\begin{minipage}{.21\linewidth}
-    \includegraphics[width=\linewidth]{ica_via_browser.pdf}%
+\begin{minipage}{.225\linewidth}
+    \includegraphics[width=0.8\linewidth]{mixed_source_space.png}%
 \end{minipage}%
-\hspace{.4em}%
-\begin{minipage}{.16\linewidth}
-    \includegraphics[width=\linewidth]{plot_meg_eeg_fields_3d_1.png}
+\hspace{-2.0em}%
+\begin{minipage}{.25\linewidth}
+    \includegraphics[width=\linewidth]{dspm_volumetric_cropped.png}
 \end{minipage}%
+\hspace{-.4em}%
+%\begin{minipage}{.165\linewidth}
+%    \includegraphics[width=\linewidth]{volume_tc.png}%
+%\end{minipage}%
 \hspace{.4em}%
-\begin{minipage}{.165\linewidth}
-    \includegraphics[width=\linewidth]{volume_tc.png}%
-\end{minipage}%
-\hspace{.4em}%
-\begin{minipage}{.155\linewidth}
-    \includegraphics[width=\linewidth]{tf_mxne.png}%
+\begin{minipage}{.305\linewidth}
+    \includegraphics[width=\linewidth]{covariance_whitening_hbm.png}%
 \end{minipage}
-\hspace{.4em}%
-\begin{minipage}{.19\linewidth}
-    \includegraphics[width=\linewidth]{plot_decoding_time_generalization_1.png}%
+\hspace{-1.0em}%
+\begin{minipage}{.22\linewidth}
+    \includegraphics[width=\linewidth]{time_gen.png}%
 \end{minipage}
 % \medskip
 \vspace{1em}%
