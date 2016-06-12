@@ -17,11 +17,11 @@
 \usepackage{color}
 
 % add some MNE + nice colors
-\definecolor{mnewebblue}{HTML}{08547D}       
-\definecolor{mnered}{HTML}{C72219}       
-\definecolor{mneblue}{HTML}{392FC2}       
-\definecolor{mnewebgreen}{HTML}{00711B}       
-\definecolor{mygray}{HTML}{00711B}       
+\definecolor{mnewebblue}{HTML}{08547D}
+\definecolor{mnered}{HTML}{C72219}
+\definecolor{mneblue}{HTML}{392FC2}
+\definecolor{mnewebgreen}{HTML}{00711B}
+\definecolor{mygray}{HTML}{00711B}
 
 
 \usepackage{pgf}
@@ -215,7 +215,9 @@
 \begin{frame}[plain,t,c]
 \postertitle{%
 \smallskip
-Trends in MEG/EEG data processing using MNE
+% Trends in MEG/EEG data processing using MNE
+MEG and EEG data processing using MNE:\\
+News from the trenches
 }
 \vspace*{-0.2em}%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -241,20 +243,22 @@ Trends in MEG/EEG data processing using MNE
     \def\MGH{\unskip$^4$}
     \def\NYU{\unskip$^5$}
     \def\ILMENAU{\unskip$^6$}
-    \def\STIRLING{\unskip$^7$}
+    \def\MARBURG{\unskip$^7$}
     \def\LEUVEN{\unskip$^{8}$}
-    \def\UCSF{\unskip$^{9}$}
-    \def\GRAZ{\unskip$^{10}$}
+    \def\UCB{\unskip$^{9}$}
+    \def\UCSF{\unskip$^{10}$}
     \def\AALTO{\unskip$^{11}$}
 
     \begin{center}
     % \vspace*{-0.8ex}%
     \mbox{\hspace{-1em}%
-    \name{A. Gramfort\PARISTECH$^{,}$\NSPIN, D.A. Engemann\NSPIN, E. Larson\UW, M. Luessi\MGH, C. Brodbeck\NYU}}
+    \name{A. Gramfort\PARISTECH$^{,}$\NSPIN, D.A. Engemann\NSPIN, E. Larson\UW, M. Jas\PARISTECH, C. Brodbeck\NYU}}
     \mbox{\hspace{-1em}%
-    \name{M. Jas\PARISTECH, T. Brooks\NYU, D. Strohmeier\ILMENAU, R. Goj\STIRLING, M. van Vliet\LEUVEN, A. Leggitt\UCSF}}
+    \name{T. Brooks\NYU, J. Lepp\"akangas\PARISTECH, M. van Vliet\LEUVEN, C. Brodbeck\NYU, , M. Wronkiewicz\UW}}
     \mbox{\hspace{-1em}
-    \name{M. Billinger\GRAZ, H. Bharadwaj\MGH, L. Parkkonen\AALTO, M. H\"am\"al\"ainen\MGH$^,$\AALTO}}
+    \name{D. Strohmeier\ILMENAU, J. Sassenhagen\MARBURG, J.R. King\NYU, C. Holdgraph\UCB, Y. Bekhti\PARISTECH}}
+    \mbox{\hspace{-1em}
+          \name{F. Raimondo\NSPIN, L. Parkkonen\AALTO, M. H\"am\"al\"ainen\MGH$^,$\AALTO}}
 	\vspace{0.05cm}
 	\def\affilbr{\hspace{0.2cm}}
     \parbox{13cm}{\tiny\center
@@ -262,14 +266,11 @@ Trends in MEG/EEG data processing using MNE
                  \NSPIN CEA-INSERM Neurospin, Gif-sur-Yvette, France \affilbr\\
                  \UW Univ. of Washington, USA \affilbr
                  \MGH MGH, Harvard Med. School, USA \affilbr
-                 \NYU New York Univ., USA
-\affilbr\\
+                 \NYU New York Univ., USA \affilbr\\
                  \ILMENAU TU Ilmenau, Germany \affilbr
-                 \STIRLING Stirling, UK \affilbr
-                 \LEUVEN KU Leuven, Belgium \affilbr
-                 \UCSF UC San Francisco, USA
-\affilbr\\
-                \GRAZ TU Graz, Austria \affilbr
+                 \MARBURG Philipps-Universität Marburg, Germany \affilbr
+                 \UCSF UC San Francisco, USA \affilbr
+                 \UCB UC Berkeley, USA \affilbr\\
                 \AALTO Aalto Univ., Espoo, Finland \affilbr
                  }
     \end{center}
@@ -299,7 +300,7 @@ Trends in MEG/EEG data processing using MNE
     \,
     \includegraphics[width=0.4\linewidth]{logo_bu.png}
     }
-  
+
 \end{minipage}
 
 %\begin{minipage}{0.14\linewidth}
@@ -317,7 +318,7 @@ Trends in MEG/EEG data processing using MNE
 %    \,
 %    \includegraphics[width=0.30\linewidth]{logo_cns}
 %    }
-%  
+%
 %\end{minipage}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -355,7 +356,7 @@ Trends in MEG/EEG data processing using MNE
         \subsection{Connectivity (sensor and source spaces)}
         \mydot Functional and effective connectivity measures
     \end{myexampleblock}
-  
+
 \end{minipage}%
 %
 \hfill%
@@ -393,7 +394,7 @@ Trends in MEG/EEG data processing using MNE
     \includegraphics[width=0.9\linewidth]{paper_logo.pdf}%
 \end{minipage}
 \begin{minipage}{0.93\linewidth}
-    A. Gramfort, M. Luessi, E. Larson, D. Engemann, D. Strohmeier, C. Brodbeck, R. Goj, M. Jas, T. Brooks, L. Parkkonen, M. H\"am\"al\"ainen, 
+    A. Gramfort, M. Luessi, E. Larson, D. Engemann, D. Strohmeier, C. Brodbeck, R. Goj, M. Jas, T. Brooks, L. Parkkonen, M. H\"am\"al\"ainen,
     \emph{MEG and EEG data analysis with MNE-Python}, Frontiers in Neuroscience, 2013
 \end{minipage}
 \end{minipage}
