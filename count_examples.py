@@ -22,5 +22,8 @@ def recursive_search(path, pattern):
 
 # assuming sample data is in examples dir
 example_path = op.dirname(sample.data_path())
+tutorial_path = op.join(op.split(example_path)[0], 'tutorials')
+tutorial_files = recursive_search(tutorial_path, '*.py')
 example_files = recursive_search(example_path, '*.py')
 print('Number of examples is %d' % len(example_files))
+print('Number of tutorials is %d' % len(tutorial_files))
